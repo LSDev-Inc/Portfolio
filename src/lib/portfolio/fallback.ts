@@ -4,7 +4,7 @@ const image = "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=fo
 
 export const fallbackPortfolio: PublicPortfolio = {
   settings: {
-    ownerName: "Lorenzo Rossi",
+    ownerName: "Lorenzo Sciotti",
     professionalTitle: "Full Stack Developer",
     headline: "Creo prodotti web veloci, eleganti e pronti a scalare.",
     heroKicker: "Portfolio premium full-stack",
@@ -13,7 +13,7 @@ export const fallbackPortfolio: PublicPortfolio = {
     about:
       "Sono un Full Stack Developer orientato al prodotto. Trasformo problemi complessi in applicazioni chiare, sicure e piacevoli da usare, lavorando tra UI, API, database, automazioni e deploy.",
     location: "Italy / Remote",
-    email: "hello@lorenzorossi.dev",
+    email: "lsdevteams@gmail.com",
     availability: "Open to full-time and high-impact freelance",
     cvUrl: "/cv.html",
     primaryCtaLabel: "View Projects",
@@ -23,10 +23,10 @@ export const fallbackPortfolio: PublicPortfolio = {
     githubUrl: "https://github.com/",
     linkedinUrl: "https://linkedin.com/",
     twitterUrl: "https://x.com/",
-    websiteUrl: "https://lorenzorossi.dev",
+    websiteUrl: "https://lorenzoSciotti.dev",
     accentName: "Aurora Cyan",
     onlineStatus: true,
-    seoTitle: "Lorenzo Rossi - Full Stack Developer",
+    seoTitle: "Lorenzo Sciotti - Full Stack Developer",
     seoDescription:
       "Portfolio premium full-stack con Next.js, TypeScript, Prisma, PostgreSQL e admin dashboard.",
     ogImage: image,

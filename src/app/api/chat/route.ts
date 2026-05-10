@@ -57,7 +57,13 @@ export async function POST(request: NextRequest) {
   const parsed = chatMessageSchema.safeParse(body);
 
   if (!parsed.success) {
-    return Response.json({ error: "Messaggio non valido." }, { status: 400 });
+    return Response.json(
+      {
+        error: "Messaggio non valido.",
+        fields: parsed.error.flatten().fieldErrors,
+      },
+      { status: 400 },
+    );
   }
 
   if (!hasDatabaseUrl()) {

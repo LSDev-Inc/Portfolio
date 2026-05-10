@@ -27,10 +27,10 @@ async function main() {
 
   await prisma.user.upsert({
     where: { email: adminEmail },
-    update: { name: "Lorenzo Rossi", passwordHash },
+    update: { name: "Lorenzo Sciotti", passwordHash },
     create: {
       email: adminEmail,
-      name: "Lorenzo Rossi",
+      name: "Lorenzo Sciotti",
       passwordHash,
       role: "ADMIN",
     },
@@ -41,7 +41,7 @@ async function main() {
     await prisma.siteSettings.update({
       where: { id: settings.id },
       data: {
-        ownerName: "Lorenzo Rossi",
+        ownerName: "Lorenzo Sciotti",
         professionalTitle: "Full Stack Developer",
         headline: "Creo prodotti web veloci, eleganti e pronti a scalare.",
         heroKicker: "Disponibile per team ambiziosi e prodotti reali",
@@ -50,7 +50,7 @@ async function main() {
         about:
           "Sono un Full Stack Developer orientato al prodotto: trasformo idee complesse in applicazioni chiare, misurabili e piacevoli da usare. Lavoro tra frontend moderno, API, database, autenticazione e deployment, con un occhio costante alla qualita del codice e all'esperienza finale.",
         location: "Italy / Remote",
-        email: "hello@lorenzorossi.dev",
+        email: "lsdevteams@gmail.com",
         availability: "Open to full-time and high-impact freelance",
         cvUrl: "/cv.html",
         primaryCtaLabel: "View Projects",
@@ -60,19 +60,19 @@ async function main() {
         githubUrl: "https://github.com/",
         linkedinUrl: "https://linkedin.com/",
         twitterUrl: "https://x.com/",
-        websiteUrl: "https://lorenzorossi.dev",
+        websiteUrl: "https://lorenzoSciotti.dev",
         accentName: "Aurora Cyan",
         onlineStatus: true,
-        seoTitle: "Lorenzo Rossi - Full Stack Developer",
+        seoTitle: "Lorenzo Sciotti - Full Stack Developer",
         seoDescription:
-          "Portfolio premium di Lorenzo Rossi, Full Stack Developer specializzato in Next.js, TypeScript, backend scalabili e product design.",
+          "Portfolio premium di Lorenzo Sciotti, Full Stack Developer specializzato in Next.js, TypeScript, backend scalabili e product design.",
         ogImage: projectImages[0],
       },
     });
   } else {
     await prisma.siteSettings.create({
       data: {
-        ownerName: "Lorenzo Rossi",
+        ownerName: "Lorenzo Sciotti",
         professionalTitle: "Full Stack Developer",
         headline: "Creo prodotti web veloci, eleganti e pronti a scalare.",
         heroKicker: "Disponibile per team ambiziosi e prodotti reali",
@@ -81,7 +81,7 @@ async function main() {
         about:
           "Sono un Full Stack Developer orientato al prodotto: trasformo idee complesse in applicazioni chiare, misurabili e piacevoli da usare. Lavoro tra frontend moderno, API, database, autenticazione e deployment, con un occhio costante alla qualita del codice e all'esperienza finale.",
         location: "Italy / Remote",
-        email: "hello@lorenzorossi.dev",
+        email: "lsdevteams@gmail.com",
         availability: "Open to full-time and high-impact freelance",
         cvUrl: "/cv.html",
         primaryCtaLabel: "View Projects",
@@ -91,12 +91,12 @@ async function main() {
         githubUrl: "https://github.com/",
         linkedinUrl: "https://linkedin.com/",
         twitterUrl: "https://x.com/",
-        websiteUrl: "https://lorenzorossi.dev",
+        websiteUrl: "https://lorenzoSciotti.dev",
         accentName: "Aurora Cyan",
         onlineStatus: true,
-        seoTitle: "Lorenzo Rossi - Full Stack Developer",
+        seoTitle: "Lorenzo Sciotti - Full Stack Developer",
         seoDescription:
-          "Portfolio premium di Lorenzo Rossi, Full Stack Developer specializzato in Next.js, TypeScript, backend scalabili e product design.",
+          "Portfolio premium di Lorenzo Sciotti, Full Stack Developer specializzato in Next.js, TypeScript, backend scalabili e product design.",
         ogImage: projectImages[0],
       },
     });

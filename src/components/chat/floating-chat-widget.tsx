@@ -85,19 +85,29 @@ export function FloatingChatWidget({ online }: { online: boolean }) {
     event.preventDefault();
     if (!visitorId || !message.trim()) return;
 
+    const cleanName = visitorName.trim();
+    const cleanEmail = visitorEmail.trim();
+    const cleanMessage = message.trim();
+    const hasInvalidEmail =
+      cleanEmail.length > 0 && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(cleanEmail);
+
+    if (hasInvalidEmail) {
+      toast.error("Inserisci una email valida oppure lascia il campo vuoto.");
+      return;
+    }
+
     setIsSending(true);
-    window.localStorage.setItem("portfolio-visitor-name", visitorName);
-    window.localStorage.setItem("portfolio-visitor-email", visitorEmail);
+    window.localStorage.setItem("portfolio-visitor-name", cleanName);
+    window.localStorage.setItem("portfolio-visitor-email", cleanEmail);
 
     const optimistic: ChatMessage = {
       id: `local-${Date.now()}`,
       sender: "VISITOR",
-      body: message.trim(),
+      body: cleanMessage,
       createdAt: new Date().toISOString(),
     };
 
     setMessages((current) => [...current, optimistic]);
-    const text = message.trim();
     setMessage("");
 
     const response = await fetch("/api/chat", {
@@ -105,16 +115,17 @@ export function FloatingChatWidget({ online }: { online: boolean }) {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         visitorId,
-        visitorName,
-        visitorEmail,
-        message: text,
+        visitorName: cleanName,
+        visitorEmail: cleanEmail,
+        message: cleanMessage,
       }),
     });
 
     setIsSending(false);
 
     if (!response.ok) {
-      toast.error("Non sono riuscito a inviare il messaggio.");
+      const payload = await response.json().catch(() => null);
+      toast.error(payload?.error ?? "Non sono riuscito a inviare il messaggio.");
       return;
     }
 
